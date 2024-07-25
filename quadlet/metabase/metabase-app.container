@@ -1,0 +1,29 @@
+[Unit]
+Description=Metabase application server
+Requires=metabase-db.service
+After=metabase-db.service
+
+[Container]
+Image=docker.io/metabase/metabase:latest
+ContainerName=metabase-app
+AutoUpdate=registry
+Environment=MB_DB_TYPE=postgres
+Environment=MB_DB_DBNAME=metabase
+Environment=MB_DB_PORT=5432
+Environment=MB_DB_USER=metabase
+Environment=MB_DB_PASS=metabase
+Environment=MB_DB_HOST=metabase-db
+Environment=MUID=1000
+Environment=MGID=1000
+UserNS=keep-id:uid=1000,gid=1000
+Volume=%h/metabase-app-data:/data:Z
+Volume=/dev/urandom:/dev/random:ro
+Network=metabase.network
+PublishPort=3000:3000
+
+[Service]
+Restart=always
+ExecStartPre=-mkdir %h/metabase-app-data
+
+[Install]
+WantedBy=default.target

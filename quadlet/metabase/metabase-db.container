@@ -1,0 +1,15 @@
+[Unit]
+Description=PostgreSQL container for Metabase
+PartOf=metabase-app.service
+
+[Container]
+Image=docker.io/library/postgres:16
+ContainerName=metabase-db
+Environment=POSTGRES_USER=metabase
+Environment=POSTGRES_PASSWORD=metabase
+Environment=PGDATA=/var/lib/postgresql/data/pgdata
+Volume=metabase-db.volume:/var/lib/postgresql/data
+Network=metabase.network
+
+[Service]
+TimeoutStartSec=900
