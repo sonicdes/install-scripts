@@ -2,6 +2,7 @@
 Description=Metabase application server
 Requires=metabase-db.service
 After=metabase-db.service
+Wants=metabase-upload-db.service
 
 [Container]
 Image=docker.io/metabase/metabase:latest
