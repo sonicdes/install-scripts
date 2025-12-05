@@ -14,11 +14,13 @@ Environment=MB_DB_PORT=5432
 Environment=MB_DB_USER=metabase
 Environment=MB_DB_PASS=metabase
 Environment=MB_DB_HOST=metabase-db
+Environment=MB_API_KEY=kosatka-mb
 Environment=MUID=1000
 Environment=MGID=1000
 UserNS=keep-id:uid=1000,gid=1000
 Volume=%h/metabase-app-data:/data:Z
 Volume=/dev/urandom:/dev/random:ro
+Volume=/db:/db:Z
 Network=metabase.network
 PublishPort=3000:3000
 
