@@ -1,0 +1,30 @@
+[Unit]
+Description=n8n Workflow Automation
+After=n8n-db.service
+Requires=n8n-db.service
+
+[Container]
+Image=docker.io/n8nio/n8n:latest
+ContainerName=n8n-app
+PublishPort=5678:5678
+Environment=DB_TYPE=postgresdb
+Environment=DB_POSTGRESDB_HOST=n8n-db
+Environment=DB_POSTGRESDB_PORT=5432
+Environment=DB_POSTGRESDB_DATABASE=n8n
+Environment=DB_POSTGRESDB_USER=n8n
+Environment=DB_POSTGRESDB_PASSWORD=n8n
+Environment=N8N_HOST=yourdomain.com
+Environment=N8N_PORT=5678
+Environment=N8N_PROTOCOL=https
+Environment=WEBHOOK_URL=https://yourdomain.com/
+Environment=GENERIC_TIMEZONE=America/Los_Angeles
+Volume=%h/n8n-app-data:/data:Z
+Network=n8n.network
+
+[Service]
+Restart=always
+ExecStartPre=-mkdir %h/n8n-app-data
+TimeoutStartSec=900
+
+[Install]
+WantedBy=default.target
