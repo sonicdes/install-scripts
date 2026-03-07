@@ -1,15 +1,15 @@
 [Unit]
 Description=PostgreSQL container for Metabase
-PartOf=metabase-app.service
+PartOf=n8n-app.service
 
 [Container]
 Image=docker.io/library/postgres:16
-ContainerName=metabase-db
-Environment=POSTGRES_USER=metabase
-Environment=POSTGRES_PASSWORD=metabase
+ContainerName=n8n-db
+Environment=POSTGRES_USER=n8n
+Environment=POSTGRES_PASSWORD=n8n
 Environment=PGDATA=/var/lib/postgresql/data/pgdata
-Volume=metabase-db.volume:/var/lib/postgresql/data
-Network=metabase.network
+Volume=n8n-db.volume:/var/lib/postgresql/data
+Network=n8n.network
 
 [Service]
 TimeoutStartSec=900

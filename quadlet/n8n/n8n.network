@@ -3,4 +3,4 @@ Description=N8N network
 
 [Network]
 NetworkName=n8n
-Label=app=metabase
+Label=app=n8n

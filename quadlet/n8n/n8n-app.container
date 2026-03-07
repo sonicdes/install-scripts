@@ -23,7 +23,7 @@ Network=n8n.network
 
 [Service]
 Restart=always
-ExecStartPre=-mkdir %h/n8n-app-data
+ExecStartPre=-mkdir -p %h/n8n-app-data
 TimeoutStartSec=900
 
 [Install]
