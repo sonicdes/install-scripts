@@ -15,6 +15,7 @@ Environment=MB_DB_USER=metabase
 Environment=MB_DB_PASS=metabase
 Environment=MB_DB_HOST=metabase-db
 Environment=MB_API_KEY=kosatka-mb
+MB_ASYNC_QUERY_THREAD_POOL_SIZE=15
 Environment=MUID=1000
 Environment=MGID=1000
 UserNS=keep-id:uid=1000,gid=1000
