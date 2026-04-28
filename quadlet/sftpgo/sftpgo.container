@@ -4,7 +4,7 @@ Description=Sftp-go server
 [Container]
 Image=docker.io/drakkan/sftpgo:latest
 ContainerName=sftpgo
-PublishPort=8080:8080
+PublishPort=8088:8080
 PublishPort=2022:2022
 Volume=%h/sftpgo/data:/srv/sftpgo:Z
 Volume=%h/sftpgo/home:/var/lib/sftpgo:Z
