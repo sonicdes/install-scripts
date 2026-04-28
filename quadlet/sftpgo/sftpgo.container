@@ -6,6 +6,7 @@ Image=docker.io/drakkan/sftpgo:latest
 ContainerName=sftpgo
 PublishPort=8088:8080
 PublishPort=2022:2022
+UserNS=keep-id:uid=1000,gid=1000
 Volume=%h/sftpgo/data:/srv/sftpgo:Z
 Volume=%h/sftpgo/home:/var/lib/sftpgo:Z
 Volume=/db/sftp:/sftp:z
