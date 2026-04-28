@@ -1,0 +1,21 @@
+[Unit]
+Description=Sftp-go server
+
+[Container]
+Image=docker.io/drakkan/sftpgo:latest
+ContainerName=sftpgo
+PublishPort=8080:8080
+PublishPort=2022:2022
+Volume=%h/sftpgo/data:/srv/sftpgo:Z
+Volume=%h/sftpgo/home:/var/lib/sftpgo:Z
+Volume=/db/sftp:/sftp:z
+
+[Service]
+Restart=always
+ExecStartPre=mkdir -p %h/sftpgo/data
+ExecStartPre=mkdir -p %h/sftpgo/home
+TimeoutStartSec=900
+
+[Install]
+WantedBy=default.target
+
